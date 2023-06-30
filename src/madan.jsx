@@ -8,6 +8,7 @@ const boxItems = Box.map((item) => {
         <h1>{item.id}</h1>
     )
 })
+
 // console.log(boxItems)
 
 

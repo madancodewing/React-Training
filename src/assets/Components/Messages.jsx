@@ -7,26 +7,36 @@
 
 import { useState } from 'react';
 
+const tabbedTog = [
+    {
+        title: "This is title 1",
+        desc: "This is desc 1"
+    },
+    {
+        title: "This is title 2",
+        desc: "This is desc 2"
+    },
+    {
+        title: "This is title 3",
+        desc: "This is desc 3"
+    },
+]
+
+
+const title = tabbedTog.map((newTitle) => {
+    return (
+        <h1>{newTitle.title}</h1>
+    )
+})
+console.log(title)
 
 function Messages() {
-    const [text, setText] = useState(['num 1', 'num 2'])
-
-    function clickMe() {
-        setText(prevText => {
-            console.log(...prevText)
-            return [...prevText, `num ${prevText.length + 1}`]
-        })
-
-    }
-
-
-
 
     return (
         <>
-            <button onClick={clickMe}>Add Message</button>
+            <button onClick={clickMe}> {title} </button>
             <div className="message">
-                <p>you have {text.length} messages </p>
+                {text && <p> Click the above button to hide me</p>}
             </div>
         </>
     )
