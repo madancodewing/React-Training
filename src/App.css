@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+input, textarea {
+  display: block;
+  padding: 10px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -45,6 +50,9 @@
 .boxes {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+
+
 }
 
 .box {
@@ -55,4 +63,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.form {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-wrap: wrap;
 }
