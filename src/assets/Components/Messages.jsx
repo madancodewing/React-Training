@@ -23,9 +23,9 @@ const tabbedTog = [
 ]
 
 
-const title = tabbedTog.map((newTitle) => {
+const title = tabbedTog.map((newTitle, index) => {
     return (
-        <h1>{newTitle.title}</h1>
+        <button key={index}>{newTitle.title}</button>
     )
 })
 console.log(title)
@@ -34,10 +34,7 @@ function Messages() {
 
     return (
         <>
-            <button onClick={clickMe}> {title} </button>
-            <div className="message">
-                {text && <p> Click the above button to hide me</p>}
-            </div>
+            {title}
         </>
     )
 }
