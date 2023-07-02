@@ -1,12 +1,13 @@
 #root {
   max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-input, textarea {
-  display: block;
+input,
+textarea {
   padding: 10px;
 }
 
@@ -16,9 +17,11 @@ input, textarea {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -27,6 +30,7 @@ input, textarea {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -46,23 +50,20 @@ input, textarea {
   color: #888;
 }
 
-
-.boxes {
+.flex {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-
-
+  gap: 10px;
 }
 
 .box {
-  width: 100px;
-  height: 100px;
   border: 5px solid #35b2ec;
-
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding-inline-start: 15px;
+}
+
+.boxes li+li {
+  margin-top: 15px;
 }
 
 .form {

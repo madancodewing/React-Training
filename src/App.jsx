@@ -22,31 +22,37 @@ function App() {
     function addBox(data) {
         setSquares(prevBoxes => {
             console.log(squares);
-            return [...prevBoxes, {id: prevBoxes.length + 1, on: true, _name: `${data.firstName}`}]
+            return [...prevBoxes, { id: prevBoxes.length + 1, on: data.isOn, _name: `${data.firstName}`, priority: data.priority, color: data.favColor }]
         })
     }
 
 
-    let boxElements = squares.map(square => {
+    let boxElements = squares.map((square, index) => {
         return (
-            <Box
-                key={square.id}
-                id={square.id}
-                on={square.on}
-                _name={square._name}
-                toggle={handleClick}
-            />
+            <li key={index}>
+                <Box
+                    key={square.id}
+                    id={square.id}
+                    on={square.on}
+                    _name={square._name}
+                    priority={square.priority}
+                    color={square.color}
+                    toggle={handleClick}
+                />
+            </li>
         )
     })
 
     return (
         <>
-            <Form 
+            <Form
                 addBox={addBox}
             />
             {/* <button onClick={addBox}>Add Box</button> */}
             <div className="boxes">
-                {boxElements}
+                <ol>
+                    {boxElements}
+                </ol>
             </div>
         </>
     )

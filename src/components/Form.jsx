@@ -3,20 +3,26 @@ import { useState } from 'react'
 function Form(props) {
     const [formData, setFormData] = useState({
         firstName: '',
-        // lastName: '',
-        // email: '',
-        // comment: ''
+        isOn: true,
+        priority: "",
+        favColor: ""
     });
 
+    console.log(formData.favColor);
+
     function handleChange(event) {
+        const { name, value, type, checked } = event.target
         setFormData(prevFormData => {
-            return { ...prevFormData, [event.target.name]: event.target.value }
+            return {
+                ...prevFormData, [name]: type === "checkbox" ? checked : value
+            }
         })
     }
 
     function handleSubmit(event) {
         event.preventDefault()
         props.addBox(formData)
+        console.log(event);
     }
 
     return (
@@ -29,27 +35,62 @@ function Form(props) {
                     onChange={handleChange}
                     value={formData.firstName}
                 />
-                {/* <input
-                    name="lastName"
-                    type="text"
-                    placeholder="Last Name"
-                    onChange={handleChange}
-                    value={formData.lastName}
+                <fieldset>
+                    <legend>Priority Level</legend>
+                    <input
+                        type="radio"
+                        id='top'
+                        name="priority"
+                        value="top"
+                        onChange={handleChange}
+                        checked={formData.priority === "top"}
+                    />
+                    <label htmlFor="top">Top</label>
+                    <input
+                        type="radio"
+                        id='mid'
+                        name="priority"
+                        value="mid"
+                        onChange={handleChange}
+                        checked={formData.priority === "mid"}
 
-                />
-                <input
-                    name="email"
-                    type="text"
-                    placeholder="Email"
+                    />
+                    <label htmlFor="mid">Mid</label>
+                    <input
+                        type="radio"
+                        id="low"
+                        checked={formData.priority === "low"}
+                        value="low"
+                        name="priority"
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="low">Low</label>
+                </fieldset>
+                <div className="flex">
+                    <input
+                        type="checkbox"
+                        id="isOn"
+                        checked={formData.isOn}
+                        onChange={handleChange}
+                        name="isOn"
+                    />
+                    <label htmlFor="isOn">This is ON ?</label>
+                </div>
+                <select
+                    name="favColor"
+                    value={formData.favColor}
                     onChange={handleChange}
-                    value={formData.email}
-                />
-                <textarea
-                    name="comment"
-                    placeholder='Comment'
-                    onChange={handleChange}
-                    value={formData.comment}
-                /> */}
+                    id="favColor"
+                >
+                    <option value="">--Choose--</option>
+                    <option value="red">Red</option>
+                    <option value="orange">Orange</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="indigo">Indigo</option>
+                    <option value="violet">Violet</option>
+                </select>
                 <button>Submit</button>
             </form>
         </>

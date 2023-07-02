@@ -6,7 +6,9 @@ function Box(props) {
     return (
         <>
             <div className="box" style={styles} onClick={() => props.toggle(props.id)}>
-                {props._name}
+                <h3>{props._name}</h3>
+                <p>: {props.priority}</p>
+                <p>: {props.color}</p>
             </div>
         </>
     )
