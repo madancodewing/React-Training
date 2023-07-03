@@ -8,8 +8,6 @@ function Form(props) {
         favColor: ""
     });
 
-    console.log(formData.favColor);
-
     function handleChange(event) {
         const { name, value, type, checked } = event.target
         setFormData(prevFormData => {

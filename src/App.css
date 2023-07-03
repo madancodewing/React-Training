@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+img {
+  display: block;
+  width: 150px;
+}
+
 input,
 textarea {
   padding: 10px;
@@ -53,6 +58,7 @@ textarea {
 .flex {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .box {

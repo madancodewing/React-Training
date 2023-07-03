@@ -3,6 +3,7 @@ import boxes from './boxes'
 import Box from './components/Box'
 import { useState } from 'react';
 import Form from './components/Form';
+import FakeProducts from './components/FakeProducts';
 
 function App() {
 
@@ -12,12 +13,11 @@ function App() {
         setSquares(prevOn => prevOn.map(box => box.id === boxId ? { ...box, on: !box.on } : { ...box }))
     }
 
-    // function addBox() {
-    //     setSquares(prevBoxes => {
-    //         console.log(squares);
-    //         return [...prevBoxes, {id: prevBoxes.length + 1, on: true, _name: `box ${prevBoxes.length + 1}`}]
-    //     })
-    // }
+    function removeBox(id) {
+        setSquares(prevSquares => prevSquares.filter(prevSquare => prevSquare.id !== id))
+        console.log(squares);
+    }
+
 
     function addBox(data) {
         setSquares(prevBoxes => {
@@ -38,6 +38,7 @@ function App() {
                     priority={square.priority}
                     color={square.color}
                     toggle={handleClick}
+                    remove={removeBox}
                 />
             </li>
         )
@@ -48,12 +49,12 @@ function App() {
             <Form
                 addBox={addBox}
             />
-            {/* <button onClick={addBox}>Add Box</button> */}
             <div className="boxes">
                 <ol>
                     {boxElements}
                 </ol>
             </div>
+            <FakeProducts />
         </>
     )
 }
