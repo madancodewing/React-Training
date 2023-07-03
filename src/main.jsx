@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import './style.css'
 import Madan from './madan';
+import Delete from './assets/Components/Delete';
 import Messages from './assets/Components/Messages';
 
 ReactDOM.createRoot(document.querySelector('.root')).render(
   <>
-    < Messages />
+    <div className="container">
+      < Delete />
+      {/* <Madan /> */}
+    </div>
   </>
 )
 

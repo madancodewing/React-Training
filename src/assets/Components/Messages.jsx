@@ -7,34 +7,43 @@
 
 import { useState } from 'react';
 
-const tabbedTog = [
+const item = [
     {
+        id: 1,
         title: "This is title 1",
         desc: "This is desc 1"
     },
     {
+        id: 2,
         title: "This is title 2",
         desc: "This is desc 2"
     },
     {
+        id: 3,
         title: "This is title 3",
         desc: "This is desc 3"
     },
 ]
 
 
-const title = tabbedTog.map((newTitle, index) => {
+const title = item.map((newTitle) => {
     return (
-        <button key={index}>{newTitle.title}</button>
+        <>
+            <button> {newTitle.title}</button>
+            <p>{newTitle.desc}</p>
+        </>
+
     )
 })
-console.log(title)
+
+
 
 function Messages() {
 
     return (
         <>
             {title}
+
         </>
     )
 }
