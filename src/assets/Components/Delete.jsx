@@ -1,49 +1,46 @@
 import { useState } from "react";
 
-
 const items = [
     {
         id: 1,
         title: "This is title 1",
         desc: "This is desc 1"
     },
-    {
-        id: 2,
-        title: "This is title 2",
-        desc: "This is desc 2"
-    },
-    {
-        id: 3,
-        title: "This is title 3",
-        desc: "This is desc 3"
-    },
-    {
-        id: 4,
-        title: "This is title 3",
-        desc: "This is desc 3"
-    },
+
 ]
 
 function Delete() {
-
     const [newitems, setItems] = useState(items)
-    console.log(newitems)
 
     const removeItem = (id) => {
-        const newItem = newitems.filter((newitems) => newitems.id !== id)
-        setItems(newItem)
-
-        console.log(newItem)
+        const updatedItems = newitems.filter((item) => item.id !== id)
+        setItems(updatedItems)
     }
 
-    const addItem = (id) => {
-        setItems(newitems)
-    }
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        const title = event.target.title.value
+        const desc = event.target.desc.value
+
+        const newItem = {
+            id: newitems.length + 1,
+            title: title,
+            desc: desc,
+
+        };
+
+        const updatedItems = [...newitems, newItem];
+        setItems(updatedItems);
+        event.target.title.value = "";
+        event.target.desc.value = "";
+    };
 
     let itemsELements = newitems.map(newItem => {
         return (
-            <div key={newItem.id}>
+            <div className="box" key={newItem.id}>
                 <span>{newItem.title}</span>
+                <span>{newItem.desc}</span>
                 <button onClick={() => removeItem(newItem.id)}>Delete</button>
             </div>
         )
@@ -51,12 +48,17 @@ function Delete() {
 
     return (
         <>
-            <input type="text" name="" id="" />
-            <button onClick={addItem}> Add</button>
+            <form onSubmit={handleSubmit} action="">
+                <input id="title" name="title" type="text" placeholder=" new title" />
+                <input id="desc" name="desc" type="text" placeholder=" new description" />
+                <button type="submit" > Add</button>
+            </form>
             {itemsELements}
+
         </>
 
     )
 }
 
 export default Delete
+

@@ -81,3 +81,20 @@ button:focus-visible {
 .danger {
   color: red;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #888888;
+  padding: 20px;
+  border-radius: 12px;
+}

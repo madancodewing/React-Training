@@ -2,7 +2,7 @@
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import './style.css'
-import Madan from './madan';
+import Madan from './Madan';
 import Delete from './assets/Components/Delete';
 import Messages from './assets/Components/Messages';
 
